@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Background Generator</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #000000, #ffffff);
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #ffffff;
+    }
+
+    input {
+      margin-bottom: 10px;
+    }
+
+    .color-box {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+  <h1>Background Generator</h1>
+  
+  <label for="color1">Color 1:</label>
+  <input type="color" id="color1" value="#000000">
+  
+  <label for="color2">Color 2:</label>
+  <input type="color" id="color2" value="#ffffff">
+  
+  <div>
+    <label>Preview:</label>
+    <div class="color-box" id="colorBox1"></div>
+    <div class="color-box" id="colorBox2"></div>
+  </div>
+
+  <script>
+    const color1Input = document.getElementById('color1');
+    const color2Input = document.getElementById('color2');
+    const colorBox1 = document.getElementById('colorBox1');
+    const colorBox2 = document.getElementById('colorBox2');
+
+    function setGradient() {
+      const color1 = color1Input.value;
+      const color2 = color2Input.value;
+
+      document.body.style.background = `linear-gradient(to right, ${color1}, ${color2})`;
+      colorBox1.style.backgroundColor = color1;
+      colorBox2.style.backgroundColor = color2;
+    }
+
+    color1Input.addEventListener('input', setGradient);
+    color2Input.addEventListener('input', setGradient);
+  </script>
+</body>
+</html>
